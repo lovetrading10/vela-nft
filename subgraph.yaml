@@ -14,29 +14,40 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - Paused
-        - RoleAdminChanged
-        - RoleGranted
-        - RoleRevoked
         - Transfer
-        - Unpaused
       abis:
         - name: VelaToken
           file: ./abis/VelaToken.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: Paused(address)
-          handler: handlePaused
-        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
-          handler: handleRoleAdminChanged
-        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleGranted
-        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleRevoked
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-        - event: Unpaused(address)
-          handler: handleUnpaused
       file: ./src/vela-token.ts
+  - kind: ethereum
+    name: VaultUtils
+    network: arbitrum-one
+    source:
+      address: "0xDa1a7ea276fbdB16ebaBB5b38257b1D56B302E4a"
+      abi: VaultUtils
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ClosePosition
+        - DecreasePosition
+        - IncreasePosition
+        - LiquidatePosition
+      abis:
+        - name: VaultUtils
+          file: ./abis/VaultUtils.json
+      eventHandlers:
+        - event: ClosePosition(bytes32,int256,uint256,uint256)
+          handler: handleClosePosition
+        - event: DecreasePosition(bytes32,indexed address,indexed
+            address,bool,uint256,int256,uint256[7])
+          handler: handleDecreasePosition
+        - event: IncreasePosition(bytes32,indexed address,indexed address,bool,uint256,uint256[7])
+          handler: handleIncreasePosition
+        - event: LiquidatePosition(bytes32,int256,uint256,uint256)
+          handler: handleLiquidatePosition
+      file: ./src/vault-utils.ts
