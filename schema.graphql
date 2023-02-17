@@ -1,64 +1,74 @@
 type Transfer @entity(immutable: true) {
-  id: Bytes!
-  from: Bytes! # address
-  to: Bytes! # address
+  id: ID!
+  from: String!
+  to: String!
   value: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  transactionHash: String!
 }
 
 type ClosePosition @entity(immutable: true) {
-  id: Bytes!
-  key: Bytes! # bytes32
+  id: ID!
+  key: String!
+  account: String!
+  indexToken: String!
+  isLong: Boolean! # bool
+  posId: Int!
   realisedPnl: BigInt! # int256
   markPrice: BigInt! # uint256
   feeUsd: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  timestamp: Int!
+  transactionHash: String!
 }
 
 type DecreasePosition @entity(immutable: true) {
-  id: Bytes!
-  key: Bytes! # bytes32
-  account: Bytes! # address
-  indexToken: Bytes! # address
+  id: ID!
+  key: String!
+  account: String!
+  indexToken: String!
   isLong: Boolean! # bool
-  posId: BigInt! # uint256
+  posId: Int!
+  averagePrice: BigInt! # uint256
+  entryFundingRate: BigInt! # uint256
+  reserveAmount: BigInt! # uint256
+  collateral: BigInt! # uint256
+  markPrice: BigInt! # uint256
+  size: BigInt! # uint256
+  feeUsd: BigInt! # uint256
   realisedPnl: BigInt! # int256
-  posData: [BigInt!] # uint256[7]
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  timestamp: Int!
+  transactionHash: String!
 }
 
 type IncreasePosition @entity(immutable: true) {
-  id: Bytes!
-  key: Bytes! # bytes32
-  account: Bytes! # address
-  indexToken: Bytes! # address
+  id: ID!
+  key: String!
+  account: String!
+  indexToken: String!
   isLong: Boolean! # bool
-  posId: BigInt! # uint256
-  posData: [BigInt!] # uint256[7]
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  posId: Int!
+  averagePrice: BigInt! # uint256
+  entryFundingRate: BigInt! # uint256
+  reserveAmount: BigInt! # uint256
+  collateral: BigInt! # uint256
+  markPrice: BigInt! # uint256
+  size: BigInt! # uint256
+  feeUsd: BigInt! # uint256
+  timestamp: Int!
+  transactionHash: String!
 }
 
 type LiquidatePosition @entity(immutable: true) {
-  id: Bytes!
-  key: Bytes! # bytes32
+  id: ID!
+  key: String!
+  account: String!
+  indexToken: String!
+  isLong: Boolean! # bool
+  posId: Int!
   realisedPnl: BigInt! # int256
   markPrice: BigInt! # uint256
   feeUsd: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type UserStat @entity {
-  id: ID!
-  balance: BigInt! # uint256
-  tradeVolume: BigInt! # uint256
+  timestamp: Int!
+  transactionHash: String!
 }
