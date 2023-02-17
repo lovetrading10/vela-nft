@@ -11,13 +11,6 @@ type Transfer @entity(immutable: true) {
 type ClosePosition @entity(immutable: true) {
   id: ID!
   key: String!
-  account: String!
-  indexToken: String!
-  isLong: Boolean! # bool
-  posId: Int!
-  realisedPnl: BigInt! # int256
-  markPrice: BigInt! # uint256
-  feeUsd: BigInt! # uint256
   timestamp: Int!
   transactionHash: String!
 }
@@ -26,17 +19,6 @@ type DecreasePosition @entity(immutable: true) {
   id: ID!
   key: String!
   account: String!
-  indexToken: String!
-  isLong: Boolean! # bool
-  posId: Int!
-  averagePrice: BigInt! # uint256
-  entryFundingRate: BigInt! # uint256
-  reserveAmount: BigInt! # uint256
-  collateral: BigInt! # uint256
-  markPrice: BigInt! # uint256
-  size: BigInt! # uint256
-  feeUsd: BigInt! # uint256
-  realisedPnl: BigInt! # int256
   timestamp: Int!
   transactionHash: String!
 }
@@ -45,16 +27,6 @@ type IncreasePosition @entity(immutable: true) {
   id: ID!
   key: String!
   account: String!
-  indexToken: String!
-  isLong: Boolean! # bool
-  posId: Int!
-  averagePrice: BigInt! # uint256
-  entryFundingRate: BigInt! # uint256
-  reserveAmount: BigInt! # uint256
-  collateral: BigInt! # uint256
-  markPrice: BigInt! # uint256
-  size: BigInt! # uint256
-  feeUsd: BigInt! # uint256
   timestamp: Int!
   transactionHash: String!
 }
@@ -62,13 +34,6 @@ type IncreasePosition @entity(immutable: true) {
 type LiquidatePosition @entity(immutable: true) {
   id: ID!
   key: String!
-  account: String!
-  indexToken: String!
-  isLong: Boolean! # bool
-  posId: Int!
-  realisedPnl: BigInt! # int256
-  markPrice: BigInt! # uint256
-  feeUsd: BigInt! # uint256
   timestamp: Int!
   transactionHash: String!
 }
