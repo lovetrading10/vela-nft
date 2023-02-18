@@ -1,74 +1,64 @@
-type Transfer @entity(immutable: true) {
-  id: ID!
-  from: String!
-  to: String!
-  value: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: String!
-}
-
-type ClosePosition @entity(immutable: true) {
+type ClosePosition @entity {
   id: ID!
   key: String!
   account: String!
   indexToken: String!
-  isLong: Boolean! # bool
+  isLong: Boolean!
   posId: Int!
-  realisedPnl: BigInt! # int256
-  markPrice: BigInt! # uint256
-  feeUsd: BigInt! # uint256
+  realisedPnl: BigInt!
+  markPrice: BigInt!
+  feeUsd: BigInt!
   timestamp: Int!
   transactionHash: String!
 }
 
-type DecreasePosition @entity(immutable: true) {
+type DecreasePosition @entity {
   id: ID!
   key: String!
   account: String!
   indexToken: String!
-  isLong: Boolean! # bool
+  isLong: Boolean!
   posId: Int!
-  averagePrice: BigInt! # uint256
-  entryFundingRate: BigInt! # uint256
-  reserveAmount: BigInt! # uint256
-  collateral: BigInt! # uint256
-  markPrice: BigInt! # uint256
-  size: BigInt! # uint256
-  feeUsd: BigInt! # uint256
-  realisedPnl: BigInt! # int256
+  averagePrice: BigInt!
+  entryFundingRate: BigInt!
+  reserveAmount: BigInt!
+  collateral: BigInt!
+  markPrice: BigInt!
+  size: BigInt!
+  feeUsd: BigInt!
+  realisedPnl: BigInt!
   timestamp: Int!
   transactionHash: String!
 }
 
-type IncreasePosition @entity(immutable: true) {
+type IncreasePosition @entity {
   id: ID!
   key: String!
   account: String!
   indexToken: String!
-  isLong: Boolean! # bool
+  isLong: Boolean!
   posId: Int!
-  averagePrice: BigInt! # uint256
-  entryFundingRate: BigInt! # uint256
-  reserveAmount: BigInt! # uint256
-  collateral: BigInt! # uint256
-  markPrice: BigInt! # uint256
-  size: BigInt! # uint256
-  feeUsd: BigInt! # uint256
+  averagePrice: BigInt!
+  entryFundingRate: BigInt!
+  reserveAmount: BigInt!
+  collateral: BigInt!
+  markPrice: BigInt!
+  size: BigInt!
+  feeUsd: BigInt
   timestamp: Int!
   transactionHash: String!
 }
 
-type LiquidatePosition @entity(immutable: true) {
+type LiquidatePosition @entity {
   id: ID!
   key: String!
   account: String!
   indexToken: String!
-  isLong: Boolean! # bool
+  isLong: Boolean!
   posId: Int!
-  realisedPnl: BigInt! # int256
-  markPrice: BigInt! # uint256
-  feeUsd: BigInt! # uint256
+  realisedPnl: BigInt!
+  markPrice: BigInt!
+  feeUsd: BigInt!
   timestamp: Int!
   transactionHash: String!
 }
